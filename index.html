@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script>
+      function rollDice() {
+        var die1 = document.getElementById("die1");
+        var status = document.getElementById("status");
+        var d1 = Math.floor(Math.random() * 100) + 1;
+
+        status.innerHTML = `You rolled a ${d1}`;
+        die1.innerHTML = d1;
+
+        if (d1 >= 65) {
+          status.innerHTML = `<h2>You Won double!</h2><br><br>You rolled 65 or higher.`;
+        }
+        if (d1 >= 95) {
+          status.innerHTML = `<h2>You Won triple!</h2> <br><br>You rolled 95 or higher.`;
+        }
+        if (d1 < 65) {
+          status.innerHTML = `<h2>You Lost!</h2> <br><br>You rolled 64 or lower.`;
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <h2 id="status">Press "Roll Dice!" to start...</h2>
+      <div class="dicer">
+        <h4 id="die1">0</h4>
+      </div>
+      <button onclick="rollDice ()">Roll Dice!</button>
+
+      <h2>Rules:</h2>
+      <div>
+        <p>Roll 0 - 64 = Lose</p>
+        <p>Roll 65 - 94 = 2x</p>
+        <p>Roll 95 - 100 = 3x</p>
+      </div>
+    </div>
+    <p></p>
+  </body>
+</html>
